@@ -1,12 +1,23 @@
-<h1 class="title">
-	<%= @post.title %>
-</h1>
-<p class="date">
-	<small>Submitted <%= time_ago_in_words(@post.created_at) %> ago</small>
-</p>
-<p class="body">
-	<%= @post.body %>
-</p>
-<%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_post_path %>
-<%= link_to "Delete", post_path, method: :delete, data: {confrim: "Are you sure?"} %>
+<div id="post_content">
+	<div id="title">
+		<h1>
+			<%= @post.title %>
+		</h1>
+	</div>
+	<div class="body">
+		<p class="body">
+			<%= @post.body %>
+		</p>
+	</div>
+	<div class="date_and_author">
+		<p class="date">
+			<small>Submitted <%= time_ago_in_words(@post.created_at) %> ago</small>
+		</p>
+	</div>
+	<div class="btn btn-group">
+		<%= link_to "Back", root_path, class: "btn btn-default" %>
+		<%= link_to "Edit", edit_post_path, class: "btn btn-default" %>
+		<%= link_to "Delete", post_path, method: :delete, data: {confrim: "Are you sure?"}, class: "btn btn-danger" %>
+	</div>	
+</div>
+
