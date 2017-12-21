@@ -16,8 +16,10 @@
 	</div>
 	<div class="btn btn-group">
 		<%= link_to "Back", root_path, class: "btn btn-default" %>
-		<%= link_to "Edit", edit_post_path, class: "btn btn-default" %>
-		<%= link_to "Delete", post_path, method: :delete, data: {confrim: "Are you sure?"}, class: "btn btn-danger" %>
+		<% if user_signed_in? %>
+			<%= link_to "Edit", edit_post_path, class: "btn btn-default" %>
+			<%= link_to "Delete", post_path, method: :delete, data: {confrim: "Are you sure?"}, class: "btn btn-danger" %>
+		<% end %>
 	</div>	
 	<div id="comments">
 		<h2><%= @post.comments.count %> Comments</h2>
